@@ -1,5 +1,5 @@
 process ELASTIX_STACK_ALIGNMENT_2 {
-    label 'elastix_stack_alignment_2'  
+    label 'process_cpu_medium'  
     input:
     path(input)
     val(json_name)
@@ -13,7 +13,7 @@ process ELASTIX_STACK_ALIGNMENT_2 {
     script:
     def args = task.ext.args ?: ''
     """
-    sq-elastix-stack_alignment  $input $json_name --z_step $z_step $args
+    sq-elastix-stack_alignment  $input $json_name --z_step $z_step --n_workers ${task.cpus}  $args
 
     """
 

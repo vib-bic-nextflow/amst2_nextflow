@@ -21,7 +21,7 @@ workflow AMST2_PREALIGN {
         sbs_alignment(input, out_json0, z_step0)
         apply_sbs_alignment(input, sbs_alignment.out.json_transform,folder_sbs)
         nsbs_alignment(apply_sbs_alignment.out.sbs_align,out_json1, z_step1)
-        lin_alg_op(sbs_alignment.out.json_transform, nsbs_alignment.out.json_transform, json2, json3, json4, keepmeta)
+        lin_alg_op(sbs_alignment.out.json_transform, nsbs_alignment.out.json_transform,  json4, keepmeta)
         apply_nsbs_alignment(input, lin_alg_op.out.json_transform,folder_nsbs) 
             
     emit: 

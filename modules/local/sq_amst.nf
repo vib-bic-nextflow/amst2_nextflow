@@ -1,5 +1,5 @@
 process SQ_AMST {
-    label 'sq_amst'  
+    label 'process_cpu_medium'  
     input:
     path(input_folder)
     val(json_name)
@@ -13,7 +13,7 @@ process SQ_AMST {
     script:
     def args = task.ext.args ?: ''
     """
-    sq-elastix-amst $input_folder $json_name --elastix_parameter_file $elastix_default_params   $args
+    sq-elastix-amst $input_folder $json_name --elastix_parameter_file $elastix_default_params --n_workers ${task.cpus}   $args
     """
 
 }

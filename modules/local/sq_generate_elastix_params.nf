@@ -1,5 +1,5 @@
 process SQ_GENERATE_ELASTIX {
-    label 'sq_generate_elastix_params'  
+    label 'process_single'  
     input:
     val(filename_elastix)
     val(transform)
