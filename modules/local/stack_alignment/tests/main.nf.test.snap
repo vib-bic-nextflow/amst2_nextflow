@@ -1,5 +1,5 @@
 {
-    "stack_alignment": {
+    "stack_alignment_sbs": {
         "content": [
             "sbs.json:md5,054f24c7a9c25798a4eea32f4e4bcde0"
         ],
@@ -7,7 +7,17 @@
             "nf-test": "0.9.3",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-12-31T17:58:56.352042958"
+        "timestamp": "2026-01-05T10:07:40.244910037"
+    },
+    "stack_alignment_nsbs": {
+        "content": [
+            "nsbs.json:md5,91414cdb2c2ebf1e13da40790ca85c30"
+        ],
+        "meta": {
+            "nf-test": "0.9.3",
+            "nextflow": "25.04.6"
+        },
+        "timestamp": "2026-01-05T10:08:06.225294778"
     },
     "stub": {
         "content": [
@@ -24,6 +34,6 @@
             "nf-test": "0.9.3",
             "nextflow": "25.04.6"
         },
-        "timestamp": "2025-12-31T17:59:05.139263188"
+        "timestamp": "2026-01-05T10:08:16.805119969"
     }
 }

@@ -10,14 +10,13 @@ workflow AMST2_PREALIGN {
         folder_sbs
         out_json1
         json4
-        keepmeta 
         folder_nsbs
 
     main:
         sbs_alignment([input, out_json0])
         apply_sbs_alignment(input, sbs_alignment.out.json_transform,folder_sbs)
-        nsbs_alignment([apply_sbs_alignment.out.sbs_align,out_json1])
-        lin_alg_op(sbs_alignment.out.json_transform, nsbs_alignment.out.json_transform,  json4, keepmeta)
+        nsbs_alignment(apply_sbs_alignment.out.sbs_align.combine(Channel.value(out_json1)))
+        lin_alg_op(sbs_alignment.out.json_transform, nsbs_alignment.out.json_transform,  json4)
         apply_nsbs_alignment(input, lin_alg_op.out.json_transform,folder_nsbs) 
             
     emit: 

@@ -8,12 +8,16 @@ process SQ_AMST {
  
 
     output:
-    path("*.json"), emit: json_transform
+    path(json_name), emit: json_transform
 
     script:
     def args = task.ext.args ?: ''
     """
     sq-elastix-amst $input_folder $json_name --elastix_parameter_file $elastix_default_params --n_workers ${task.cpus}   $args
+    """
+    stub:
+    """
+    mkdir -p transform_json
     """
 
 }

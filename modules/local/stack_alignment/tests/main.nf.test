@@ -8,7 +8,7 @@ nextflow_process {
     tag "prealignment"
     tag "stack_alignment"
 
-    test("stack_alignment") {
+    test("stack_alignment_sbs") {
 
         when {
             params {
@@ -18,7 +18,7 @@ nextflow_process {
                 config "/home/tatiana/nextflow_bic/amst2_nextflow/modules/local/stack_alignment/tests/nextflow.config"
                 """
                 input[0] = tuple(
-                    "/home/tatiana/input_amst/input",                    
+                    "/home/tatiana/test_amst2/input",                    
                     "sbs.json",
                 )
                 """
@@ -30,7 +30,34 @@ nextflow_process {
                 { assert process.success },
                 { assert process.out.json_transform.size() >= 1 },
                 { assert path(process.out.json_transform[0]).exists() },
-                {assert snapshot(process.out.json_transform[0]).match("stack_alignment")}
+                {assert snapshot(process.out.json_transform[0]).match("stack_alignment_sbs")}
+            )
+        }
+    }
+
+     test("stack_alignment_nsbs") {
+
+        when {
+            params {
+               module_args= "--gaussian_sigma 2  --transform translation --auto_mask non-zero --z_step 8 "
+            }
+            process {
+                config "/home/tatiana/nextflow_bic/amst2_nextflow/modules/local/stack_alignment/tests/nextflow.config"
+                """
+                input[0] = tuple(
+                    "/home/tatiana/input_amst/input",                    
+                    "nsbs.json",
+                )
+                """
+            }
+        }
+
+        then {
+            assertAll(
+                { assert process.success },
+                { assert process.out.json_transform.size() >= 1 },
+                { assert path(process.out.json_transform[0]).exists() },
+                {assert snapshot(process.out.json_transform[0]).match("stack_alignment_nsbs")}
             )
         }
     }

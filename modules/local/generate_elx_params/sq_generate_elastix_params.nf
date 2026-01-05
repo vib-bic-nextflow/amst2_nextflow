@@ -13,5 +13,8 @@ process SQ_GENERATE_ELASTIX {
     """
     sq-elastix-make_default_parameter_file $filename_elastix --transform $transform -elx $elx_params
     """
-
+    stub:
+    """
+    touch $filename_elastix
+    """
 }
