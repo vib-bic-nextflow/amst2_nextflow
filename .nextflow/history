@@ -1,5 +1,0 @@
-2025-12-31 16:34:27	4m 48s	grave_watson	OK	9252d7e2c996c569cc20b01bd817d840	8b693e29-d666-484e-9087-6eb05e0aa8eb	nextflow run main.nf -profile conda
-2025-12-31 16:42:03	-	deadly_mercator	-	d46b11e51ccd29f873ae83436d78dfe4	7e2020bb-0e59-46db-9526-60fd2fe9b23c	nextflow run ./main_subworkflow.nf -profile conda
-2025-12-31 16:42:46	4m 44s	pedantic_faraday	OK	d46b11e51ccd29f873ae83436d78dfe4	d064e572-0d7b-46da-8bb9-9c3d756fea31	nextflow run ./main_subworkflow.nf -profile conda
-2025-12-31 17:07:23	4m 44s	jovial_davinci	OK	d46b11e51ccd29f873ae83436d78dfe4	ec03ecc0-f9df-4ca8-a9d2-919cfd769ede	nextflow run ./main_subworkflow.nf -profile conda_wsl
-2025-12-31 17:17:57	4m 42s	pedantic_goldberg	OK	d46b11e51ccd29f873ae83436d78dfe4	b87da473-d271-49b1-b4eb-247a43b80a3c	nextflow run ./main_subworkflow.nf -profile conda_wsl
