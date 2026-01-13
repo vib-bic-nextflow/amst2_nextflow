@@ -1,28 +1,23 @@
-Dec-31 17:57:30.880 [main] INFO  com.askimed.nf.test.App - nf-test 0.9.3
-Dec-31 17:57:30.895 [main] INFO  com.askimed.nf.test.App - Arguments: [test, --profile, conda, modules/local/stack_alignment/tests/main.nf.test]
-Dec-31 17:57:31.700 [main] INFO  com.askimed.nf.test.App - Nextflow Version: 25.04.6
-Dec-31 17:57:31.702 [main] INFO  com.askimed.nf.test.commands.RunTestsCommand - Load config from file /home/tatiana/nextflow_bic/amst2_nextflow/nf-test.config...
-Dec-31 17:57:32.051 [main] WARN  com.askimed.nf.test.nextflow.NextflowScript - Module /home/tatiana/nextflow_bic/amst2_nextflow/main.nf: Dependency '/home/tatiana/nextflow_bic/amst2_nextflow/./modules/local/sq_stack_alignment.nf.nf' not found.
-Dec-31 17:57:32.052 [main] WARN  com.askimed.nf.test.nextflow.NextflowScript - Module /home/tatiana/nextflow_bic/amst2_nextflow/main.nf: Dependency '/home/tatiana/nextflow_bic/amst2_nextflow/./modules/local/sq_stack_alignment_2.nf.nf' not found.
-Dec-31 17:57:32.052 [main] WARN  com.askimed.nf.test.nextflow.NextflowScript - Module /home/tatiana/nextflow_bic/amst2_nextflow/main.nf: Dependency '/home/tatiana/nextflow_bic/amst2_nextflow/./modules/local/sq_matrices_op.nf.nf' not found.
-Dec-31 17:57:32.052 [main] WARN  com.askimed.nf.test.nextflow.NextflowScript - Module /home/tatiana/nextflow_bic/amst2_nextflow/main.nf: Dependency '/home/tatiana/nextflow_bic/amst2_nextflow/./modules/local/sq_generate_elastix_params.nf.nf' not found.
-Dec-31 17:57:32.052 [main] WARN  com.askimed.nf.test.nextflow.NextflowScript - Module /home/tatiana/nextflow_bic/amst2_nextflow/main.nf: Dependency '/home/tatiana/nextflow_bic/amst2_nextflow/./modules/local/sq_amst.nf.nf' not found.
-Dec-31 17:57:32.082 [main] INFO  com.askimed.nf.test.lang.dependencies.DependencyResolver - Loaded 12 files from directory /home/tatiana/nextflow_bic/amst2_nextflow in 0.036 sec
-Dec-31 17:57:32.084 [main] INFO  com.askimed.nf.test.lang.dependencies.DependencyResolver - Found 1 files containing tests.
-Dec-31 17:57:32.084 [main] DEBUG com.askimed.nf.test.lang.dependencies.DependencyResolver - Found files: [/home/tatiana/nextflow_bic/amst2_nextflow/modules/local/stack_alignment/tests/main.nf.test]
-Dec-31 17:57:32.279 [main] INFO  com.askimed.nf.test.commands.RunTestsCommand - Found 2 tests to execute.
-Dec-31 17:57:32.280 [main] INFO  com.askimed.nf.test.core.TestExecutionEngine - Started test plan
-Dec-31 17:57:32.280 [main] INFO  com.askimed.nf.test.core.TestExecutionEngine - Running testsuite 'Test Process stack_alignment' from file '/home/tatiana/nextflow_bic/amst2_nextflow/modules/local/stack_alignment/tests/main.nf.test'.
-Dec-31 17:57:32.280 [main] INFO  com.askimed.nf.test.core.TestExecutionEngine - Run test 'bb613741: stack_alignment'. type: com.askimed.nf.test.lang.process.ProcessTest
-Dec-31 17:58:56.350 [main] DEBUG com.askimed.nf.test.lang.extensions.SnapshotFile - Init new snapshot file '/home/tatiana/nextflow_bic/amst2_nextflow/modules/local/stack_alignment/tests/main.nf.test.snap'
-Dec-31 17:58:56.351 [main] DEBUG com.askimed.nf.test.lang.extensions.Snapshot - Snapshot 'stack_alignment' not found.
-Dec-31 17:58:56.352 [main] DEBUG com.askimed.nf.test.lang.extensions.SnapshotFile - Created snapshot 'stack_alignment'
-Dec-31 17:58:56.359 [main] DEBUG com.askimed.nf.test.lang.extensions.SnapshotFile - Wrote snapshots to file '/home/tatiana/nextflow_bic/amst2_nextflow/modules/local/stack_alignment/tests/main.nf.test.snap'
-Dec-31 17:58:56.360 [main] INFO  com.askimed.nf.test.core.TestExecutionEngine - Test 'bb613741: stack_alignment' finished. status: PASSED
-Dec-31 17:58:56.361 [main] INFO  com.askimed.nf.test.core.TestExecutionEngine - Run test '149a225a: stub'. type: com.askimed.nf.test.lang.process.ProcessTest
-Dec-31 17:59:05.139 [main] DEBUG com.askimed.nf.test.lang.extensions.Snapshot - Snapshot 'stub' not found.
-Dec-31 17:59:05.139 [main] DEBUG com.askimed.nf.test.lang.extensions.SnapshotFile - Created snapshot 'stub'
-Dec-31 17:59:05.143 [main] DEBUG com.askimed.nf.test.lang.extensions.SnapshotFile - Wrote snapshots to file '/home/tatiana/nextflow_bic/amst2_nextflow/modules/local/stack_alignment/tests/main.nf.test.snap'
-Dec-31 17:59:05.143 [main] INFO  com.askimed.nf.test.core.TestExecutionEngine - Test '149a225a: stub' finished. status: PASSED
-Dec-31 17:59:05.143 [main] INFO  com.askimed.nf.test.core.TestExecutionEngine - Testsuite 'Test Process stack_alignment' finished. snapshot file: true, skipped tests: false, failed tests: false
-Dec-31 17:59:05.145 [main] INFO  com.askimed.nf.test.core.TestExecutionEngine - Executed 2 tests. 0 tests failed. Done!
+Jan-05 17:12:12.083 [main] INFO  com.askimed.nf.test.App - nf-test 0.9.3
+Jan-05 17:12:12.095 [main] INFO  com.askimed.nf.test.App - Arguments: [test, --profile, conda, ./modules/local/amst/tests/main.nf.test]
+Jan-05 17:12:12.821 [main] INFO  com.askimed.nf.test.App - Nextflow Version: 25.04.6
+Jan-05 17:12:12.822 [main] INFO  com.askimed.nf.test.commands.RunTestsCommand - Load config from file /home/tatiana/nextflow_bic/amst2_nextflow/nf-test.config...
+Jan-05 17:12:13.176 [main] INFO  com.askimed.nf.test.lang.dependencies.DependencyResolver - Loaded 19 files from directory /home/tatiana/nextflow_bic/amst2_nextflow in 0.027 sec
+Jan-05 17:12:13.178 [main] INFO  com.askimed.nf.test.lang.dependencies.DependencyResolver - Found 1 files containing tests.
+Jan-05 17:12:13.178 [main] DEBUG com.askimed.nf.test.lang.dependencies.DependencyResolver - Found files: [/home/tatiana/nextflow_bic/amst2_nextflow/modules/local/amst/tests/main.nf.test]
+Jan-05 17:12:13.414 [main] INFO  com.askimed.nf.test.commands.RunTestsCommand - Found 2 tests to execute.
+Jan-05 17:12:13.415 [main] INFO  com.askimed.nf.test.core.TestExecutionEngine - Started test plan
+Jan-05 17:12:13.415 [main] INFO  com.askimed.nf.test.core.TestExecutionEngine - Running testsuite 'Test Process matrices operations' from file '/home/tatiana/nextflow_bic/amst2_nextflow/modules/local/amst/tests/main.nf.test'.
+Jan-05 17:12:13.415 [main] INFO  com.askimed.nf.test.core.TestExecutionEngine - Run test '2be775e4: apply_alignment_sbs'. type: com.askimed.nf.test.lang.process.ProcessTest
+Jan-05 17:14:26.063 [main] DEBUG com.askimed.nf.test.lang.extensions.SnapshotFile - Init new snapshot file '/home/tatiana/nextflow_bic/amst2_nextflow/modules/local/amst/tests/main.nf.test.snap'
+Jan-05 17:14:26.064 [main] DEBUG com.askimed.nf.test.lang.extensions.Snapshot - Snapshot 'amst' not found.
+Jan-05 17:14:26.065 [main] DEBUG com.askimed.nf.test.lang.extensions.SnapshotFile - Created snapshot 'amst'
+Jan-05 17:14:26.098 [main] DEBUG com.askimed.nf.test.lang.extensions.SnapshotFile - Wrote snapshots to file '/home/tatiana/nextflow_bic/amst2_nextflow/modules/local/amst/tests/main.nf.test.snap'
+Jan-05 17:14:26.098 [main] INFO  com.askimed.nf.test.core.TestExecutionEngine - Test '2be775e4: apply_alignment_sbs' finished. status: PASSED
+Jan-05 17:14:26.100 [main] INFO  com.askimed.nf.test.core.TestExecutionEngine - Run test 'aa63e48e: stub'. type: com.askimed.nf.test.lang.process.ProcessTest
+Jan-05 17:14:35.803 [main] DEBUG com.askimed.nf.test.lang.extensions.Snapshot - Snapshot 'stub' not found.
+Jan-05 17:14:35.803 [main] DEBUG com.askimed.nf.test.lang.extensions.SnapshotFile - Created snapshot 'stub'
+Jan-05 17:14:35.817 [main] DEBUG com.askimed.nf.test.lang.extensions.SnapshotFile - Wrote snapshots to file '/home/tatiana/nextflow_bic/amst2_nextflow/modules/local/amst/tests/main.nf.test.snap'
+Jan-05 17:14:35.817 [main] INFO  com.askimed.nf.test.core.TestExecutionEngine - Test 'aa63e48e: stub' finished. status: PASSED
+Jan-05 17:14:35.818 [main] INFO  com.askimed.nf.test.core.TestExecutionEngine - Testsuite 'Test Process matrices operations' finished. snapshot file: true, skipped tests: false, failed tests: false
+Jan-05 17:14:35.820 [main] INFO  com.askimed.nf.test.core.TestExecutionEngine - Executed 2 tests. 0 tests failed. Done!
