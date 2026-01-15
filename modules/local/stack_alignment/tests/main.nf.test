@@ -73,7 +73,7 @@ nextflow_process {
             process {
                 config "/home/tatiana/nextflow_bic/amst2_nextflow/modules/local/stack_alignment/tests/nextflow.config"
                 """
-                input[0] =  input[0] = tuple(
+                input[0] = tuple(
                     "/home/tatiana/input_amst/input",                    
                     "sbs.json",
                 )
