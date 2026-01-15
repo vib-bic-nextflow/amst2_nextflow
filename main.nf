@@ -8,8 +8,8 @@ include {ELASTIX_STACK_ALIGNMENT_2 as nsbs_alignment} from './modules/local/stac
 include{LINALG_OP as lin_alg_op} from './modules/local/matrices_op/sq_matrices_op.nf'
 include {SQ_GENERATE_ELASTIX as generate_elastix_params} from './modules/local/generate_elx_params/sq_generate_elastix_params.nf'
 include {SQ_AMST as amst} from './modules/local/amst/sq_amst.nf'
-include {MERGE_JSON as merge_json_sbs; MERGE_JSON as merge_json_nsbs; MERGE_JSON as merge_json_amst } from './modules/local/merge_json/main.nf'
-
+include {MERGE_JSON as merge_json_sbs; MERGE_JSON as merge_json_nsbs } from './modules/local/merge_json/main.nf'
+include {MERGE_TRANSFORM as merge_transform } from './modules/local/merge_transform/main.nf'
 
 
 workflow {
@@ -33,8 +33,8 @@ workflow {
      apply_nsbs_alignment(params.input, lin_alg_op.out.json_transform,params.folder_nsbs,ranges_ch)
      generate_elastix_params(params.default_elastix, params.transform_amst, params.elx)
      amst(apply_nsbs_alignment.out.tif_files.collect(),params.out_amst,generate_elastix_params.out.elastix_default_params,ranges_ch)
-     // from here on it fails
      amst.out.transform.collect().view()
-     merge_json_amst(amst.out.transform.collect(),'amst_json')
-     apply_amst_alignment(apply_nsbs_alignment.out.tif_files.collect(), merge_json_amst.out.json_merge,params.folder_amst,ranges_ch)
+     merge_transform(amst.out.transform.collect(),'amst_transform')
+     // from here on it fails
+     apply_amst_alignment(apply_nsbs_alignment.out.tif_files.collect(), merge_transform.out.transform,params.folder_amst,ranges_ch)
 }
