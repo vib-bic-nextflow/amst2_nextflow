@@ -92,7 +92,12 @@ pip install https://github.com/jhennies/AMST2/archive/refs/tags/0.3.14.tar.gz
 cd $VSC_SCRATCH
 git clone https://github.com/vib-bic-nextflow/amst2_nextflow.git
 ```
+### How to run the nextflow
 
+```
+module load Nextflow
+nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uhasselt,genius,singularity  --input yourinput --outdir youroutdir
+```
 
 
 
