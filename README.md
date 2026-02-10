@@ -64,6 +64,39 @@ export SLURM_ACCOUNT='lp_hack_bio_im'
 source .bashrc
 ```
 
+- Set the intitutional nf-core config
+```bash
+cd $VSC_DATA
+# create a directory
+mkdir nextflow_config
+cd nextflow_config
+```
+```bash
+wget -o vsc_kul.config https://github.com/vib-bic-projects/2025_11_Irene/blob/main/lsmquant/vsc_kul_adapted.config
+```
+
+Do this until amst2 is containerized
+- Install conda if not already installed
+
+- Install a container for amst2
+```bash
+conda create -n amst2-env -c bioconda -c conda-forge --override-channels python=3.11 nibabel opencv zarr=2 vigra pandas 
+source activate amst2-env
+pip install SimpleITK-SimpleElastix transforms3d ruamel.yaml
+pip install https://github.com/jhennies/squirrel/archive/refs/tags/0.3.15.tar.gz
+pip install https://github.com/jhennies/AMST2/archive/refs/tags/0.3.14.tar.gz
+```
+
+- Clone the AMST2  repository
+```bash
+cd $VSC_SCRATCH
+git clone https://github.com/vib-bic-nextflow/amst2_nextflow.git
+```
+
+
+
+
+
 > [!TIP]
 > Tier2 KU Leuven require to be part of a group with credit to run something, so lp_hack_bio_im is the name of our group. See your group here : https://account.vscentrum.be/django/group/
 
