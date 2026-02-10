@@ -37,7 +37,7 @@ file system stg_00128
 cd $VSC_SCRATCH
 mkdir anneke
 cd anneke
-sftp -P 22345 benjaminp@fs0.irc.ugent.be
+sftp -P 22345 username@fs0.irc.ugent.be
 cd /microscopy/service/user_micro/2026/Anneke_BIC/Datasets\ for\ Registration
 get -r EM_436_S4_BPA_Run020226
 exit
@@ -92,11 +92,38 @@ pip install https://github.com/jhennies/AMST2/archive/refs/tags/0.3.14.tar.gz
 cd $VSC_SCRATCH
 git clone https://github.com/vib-bic-nextflow/amst2_nextflow.git
 ```
+
+#### Set the nextflow.config
+
+```bash
+
+conda env list
+# conda environments:
+#
+base                     /data/leuven/336/vsc33625/miniconda3
+amst2-env             *  /data/leuven/336/vsc33625/miniconda3/envs/amst2-env
+
+cd amst2_nextflow
+
+vim nextflow.config
+(...)
+ conda_tier2{
+  process.executor= "slurm"
+  conda.enabled = true
+  singularity.enabled= false
+  docker.enabled=false
+  process.conda='/data/leuven/336/vscxxxxxx/miniconda3/envs/amst2-env'
+}
+(...)
+```
+
+
 ### How to run the nextflow
 
 ```
+cd $VSC_SCRATCH
 module load Nextflow
-nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uhasselt,genius,singularity  --input yourinput --outdir youroutdir
+nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uhasselt,genius,conda_tier2 --input /scratch/leuven/336/vsc33625/anneke/EM_436_S4_BPA_Run020226 --outdir /scratch/leuven/336/vsc33625/anneke/output 
 ```
 
 
