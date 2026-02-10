@@ -4,17 +4,16 @@ process ELASTIX_APPLY_MULTI_STACK_ALIGNMENT {
     path(input)
     val(json_name)
     val(align_folder)
-    tuple val(start), val(end)
  
 
     output:
-    path("${align_folder}/*.tif"), emit: tif_files
+    path(align_folder), emit: sbs_align
 
     script:
     def args = task.ext.args ?: ''
     """
     mkdir -p ${align_folder}
-    sq-elastix-apply_multi_step_stack_alignment   $input $json_name $align_folder --n_workers ${task.cpus} --z_range ${start} ${end} $args
+    sq-elastix-apply_multi_step_stack_alignment   $input $json_name $align_folder --n_workers ${task.cpus} $args
 
     """
     stub:

@@ -12,9 +12,9 @@ include {SQ_AMST as amst} from './modules/local/amst/sq_amst.nf'
 
 
 workflow {
-    sbs_alignment(params.input, params.out_json0, params.z_step0)
+    sbs_alignment([params.input, params.out_json0])
     apply_sbs_alignment(params.input, sbs_alignment.out.json_transform,params.folder_sbs)
-    nsbs_alignment(apply_sbs_alignment.out.sbs_align,params.out_json1, params.z_step1)
+    nsbs_alignment(apply_sbs_alignment.out.sbs_align.combine(Channel.value(params.out_json1)))
     lin_alg_op(sbs_alignment.out.json_transform, nsbs_alignment.out.json_transform, params.json4)
     apply_nsbs_alignment(params.input, lin_alg_op.out.json_transform,params.folder_nsbs)
     generate_elastix_params(params.default_elastix, params.transform_amst, params.elx)
