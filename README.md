@@ -124,7 +124,10 @@ vim nextflow.config
 ```
 cd $VSC_SCRATCH
 module load Nextflow
-nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uhasselt,genius,conda_tier2 --input /scratch/leuven/336/vsc33625/anneke/EM_436_S4_BPA_Run020226 --outdir /scratch/leuven/336/vsc33625/anneke/output 
+# how to run
+nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uhasselt,genius,conda_tier2 --input /scratch/leuven/336/vsc33625/anneke/EM_436_S4_BPA_Run020226 --outdir /scratch/leuven/336/vsc33625/anneke/output
+# how to restart
+nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uhasselt,genius,conda_tier2 --input /scratch/leuven/336/vsc33625/anneke/EM_436_S4_BPA_Run020226 --outdir /scratch/leuven/336/vsc33625/anneke/output -resume
 ```
 
 
