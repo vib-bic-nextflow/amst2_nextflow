@@ -117,7 +117,8 @@ vim nextflow.config
 }
 (...)
 ```
-
+### to build the container:
+see [container](https://github.com/vib-bic-admin/vsc-hpc-bic/blob/main/scripts/apptainer_build_tier2kul.slurm)
 
 ### How to run the nextflow
 
