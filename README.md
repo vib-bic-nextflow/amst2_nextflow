@@ -16,6 +16,7 @@ Tier2 require a firewall connection, just enter your credential
 
 - Go to the scratch
 ```bash
+cd $VSC_SCRATCH
 ```
 - Check you quota
 ```bash
