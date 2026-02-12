@@ -169,10 +169,10 @@ nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uh
 > Each time it retries, it will double the amount of memory allocated defined by its _process label_. The category of each _process label_ is defined in `amst2_nextflow/conf/base.config`. The process category is defined for each module (e.g. https://github.com/vib-bic-nextflow/amst2_nextflow/blob/main/modules/local/apply_multi_stack_alignment/sq_apply_multi_stack_alignment.nf , you can see by defau;lt it's using `label 'process_cpu_medium'`, which if we see the `base.config` is defined to use
 > ```
 > withLabel:process_cpu_medium { 
-        cpus        = { 8     * task.attempt }
-        memory      = { 16.GB * task.attempt }
-        time        = { 1.h   * task.attempt }
-    } 
+>        cpus        = { 8     * task.attempt }
+>        memory      = { 16.GB * task.attempt }
+>        time        = { 1.h   * task.attempt }
+>    } 
 > ```
 
 
