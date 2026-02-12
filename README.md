@@ -157,7 +157,7 @@ nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uh
 nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uhasselt,genius,singularity_tier2 --input /scratch/leuven/336/vsc33625/anneke/EM_436_S4_BPA_Run020226 --outdir /scratch/leuven/336/vsc33625/anneke/output -resume
 ```
 
-> [TIP]
+> [!TIP]
 > Sometimes it's failing
 > ```bash
 > [76/d3b572] NOTE: Process `apply_sbs_alignment` terminated with an error exit status (1) -- Execution is retried (1)
