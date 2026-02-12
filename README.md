@@ -125,13 +125,13 @@ mkdir containers
 touch containers/squirrel.def
 vi containers/squirrel.def
 ```
-copy the contant from https://github.com/vib-bic-nextflow/amst2_nextflow/blob/main/squirrel.def
+copy the content from https://github.com/vib-bic-nextflow/amst2_nextflow/blob/main/squirrel.def
 
 Submit the build as a slurm job
 ```bash
 sbatch apptainer_squirrel.slurm
 ```
-Montitor the building
+Monitor the building
 ```bash
 squeue
 
