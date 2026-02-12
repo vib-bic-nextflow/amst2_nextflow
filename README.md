@@ -157,7 +157,23 @@ nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uh
 nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uhasselt,genius,singularity_tier2 --input /scratch/leuven/336/vsc33625/anneke/EM_436_S4_BPA_Run020226 --outdir /scratch/leuven/336/vsc33625/anneke/output -resume
 ```
 
-
+> [TIP]
+> Sometimes it's failing
+> ```bash
+> [76/d3b572] NOTE: Process `apply_sbs_alignment` terminated with an error exit status (1) -- Execution is retried (1)
+> [88/03777d] Re-submitted process > apply_sbs_alignment
+> [88/03777d] NOTE: Process `apply_sbs_alignment` terminated with an error exit status (1) -- Execution is retried (2)
+> ```
+> And will retry with a maximum attend of 3 times.
+> 
+> Each time it retries, it will double the amount of memory allocated defined by its _process label_. The category of each _process label_ is defined in `amst2_nextflow/conf/base.config`. The process category is defined for each module (e.g. https://github.com/vib-bic-nextflow/amst2_nextflow/blob/main/modules/local/apply_multi_stack_alignment/sq_apply_multi_stack_alignment.nf , you can see by defau;lt it's using `label 'process_cpu_medium'`, which if we see the `base.config` is defined to use
+> ```
+> withLabel:process_cpu_medium { 
+        cpus        = { 8     * task.attempt }
+        memory      = { 16.GB * task.attempt }
+        time        = { 1.h   * task.attempt }
+    } 
+> ```
 
 
 > [!TIP]
