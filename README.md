@@ -117,7 +117,49 @@ vim nextflow.config
 }
 (...)
 ```
-### to build the container:
+### Build the squirrel container:
+
+```bash
+cd $VSC_SCRATCH
+mkdir containers
+touch containers/squirrel.def
+vi containers/squirrel.def
+```
+```
+Bootstrap: docker
+From: continuumio/miniconda3
+
+%files
+
+%runscript
+exec "$@"
+
+%environment
+CONDA_BIN_PATH="/opt/conda/bin"
+export PATH="$CONDA_BIN_PATH:$PATH"
+export PATH="/opt/conda/envs/squirrelenv/bin:$PATH"
+
+%post
+apt-get update -y
+apt install -y build-essential
+export PATH="/opt/conda/bin:$PATH"
+conda create --name squirrelenv -c bioconda -c conda-forge --override-channels python=3.11 nibabel opencv zarr=2 vigra pandas
+pip install --upgrade pip
+/opt/conda/envs/squirrelenv/bin/pip install SimpleITK-SimpleElastix transforms3d ruamel.yaml
+/opt/conda/envs/squirrelenv/bin/pip install  https://github.com/jhennies/squirrel/archive/refs/tags/0.3.15.tar.gz
+```
+Submit the build as a slurm job
+```bash
+sbatch apptainer_squirrel.slurm
+```
+Montitor the building
+```bash
+squeue
+
+saact
+```
+
+
 see [container](https://github.com/vib-bic-admin/vsc-hpc-bic/blob/main/scripts/apptainer_build_tier2kul.slurm)
 
 ### How to run the nextflow
