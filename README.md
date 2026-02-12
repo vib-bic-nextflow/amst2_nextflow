@@ -125,29 +125,8 @@ mkdir containers
 touch containers/squirrel.def
 vi containers/squirrel.def
 ```
-```
-Bootstrap: docker
-From: continuumio/miniconda3
+copy the contant from https://github.com/vib-bic-nextflow/amst2_nextflow/blob/main/squirrel.def
 
-%files
-
-%runscript
-exec "$@"
-
-%environment
-CONDA_BIN_PATH="/opt/conda/bin"
-export PATH="$CONDA_BIN_PATH:$PATH"
-export PATH="/opt/conda/envs/squirrelenv/bin:$PATH"
-
-%post
-apt-get update -y
-apt install -y build-essential
-export PATH="/opt/conda/bin:$PATH"
-conda create --name squirrelenv -c bioconda -c conda-forge --override-channels python=3.11 nibabel opencv zarr=2 vigra pandas
-pip install --upgrade pip
-/opt/conda/envs/squirrelenv/bin/pip install SimpleITK-SimpleElastix transforms3d ruamel.yaml
-/opt/conda/envs/squirrelenv/bin/pip install  https://github.com/jhennies/squirrel/archive/refs/tags/0.3.15.tar.gz
-```
 Submit the build as a slurm job
 ```bash
 sbatch apptainer_squirrel.slurm
