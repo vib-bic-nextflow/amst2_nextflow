@@ -76,6 +76,30 @@ cd nextflow_config
 wget -o vsc_kul.config https://github.com/vib-bic-projects/2025_11_Irene/blob/main/lsmquant/vsc_kul_adapted.config
 ```
 
+
+### Build the squirrel container:
+
+```bash
+cd $VSC_SCRATCH
+mkdir containers
+touch containers/squirrel.def
+vi containers/squirrel.def
+```
+copy the content from https://github.com/vib-bic-nextflow/amst2_nextflow/blob/main/squirrel.def
+
+Submit the build as a slurm job
+```bash
+sbatch apptainer_squirrel.slurm
+```
+Monitor the building
+```bash
+squeue
+
+saact
+```
+
+### OLD WAY WITH CONDA (NOT WORKING ON TIER 2 KU LEUVEN)
+
 Do this until amst2 is containerized
 - Install conda if not already installed
 
@@ -117,26 +141,6 @@ vim nextflow.config
 }
 (...)
 ```
-### Build the squirrel container:
-
-```bash
-cd $VSC_SCRATCH
-mkdir containers
-touch containers/squirrel.def
-vi containers/squirrel.def
-```
-copy the content from https://github.com/vib-bic-nextflow/amst2_nextflow/blob/main/squirrel.def
-
-Submit the build as a slurm job
-```bash
-sbatch apptainer_squirrel.slurm
-```
-Monitor the building
-```bash
-squeue
-
-saact
-```
 
 
 see [container](https://github.com/vib-bic-admin/vsc-hpc-bic/blob/main/scripts/apptainer_build_tier2kul.slurm)
@@ -145,11 +149,12 @@ see [container](https://github.com/vib-bic-admin/vsc-hpc-bic/blob/main/scripts/a
 
 ```
 cd $VSC_SCRATCH
+module load cluster/genius/batch
 module load Nextflow
 # how to run
-nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uhasselt,genius,conda_tier2 --input /scratch/leuven/336/vsc33625/anneke/EM_436_S4_BPA_Run020226 --outdir /scratch/leuven/336/vsc33625/anneke/output
+nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uhasselt,genius,singularity_tier2 --input /scratch/leuven/336/vsc33625/anneke/EM_436_S4_BPA_Run020226 --outdir /scratch/leuven/336/vsc33625/anneke/output
 # how to restart
-nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uhasselt,genius,conda_tier2 --input /scratch/leuven/336/vsc33625/anneke/EM_436_S4_BPA_Run020226 --outdir /scratch/leuven/336/vsc33625/anneke/output -resume
+nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uhasselt,genius,singularity_tier2 --input /scratch/leuven/336/vsc33625/anneke/EM_436_S4_BPA_Run020226 --outdir /scratch/leuven/336/vsc33625/anneke/output -resume
 ```
 
 
