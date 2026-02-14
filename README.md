@@ -151,8 +151,10 @@ see [container](https://github.com/vib-bic-admin/vsc-hpc-bic/blob/main/scripts/a
 cd $VSC_SCRATCH
 module load cluster/genius/batch
 module load Nextflow
-# how to run
+# how to run on Tier2
 nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uhasselt,genius,singularity_tier2 --input /scratch/leuven/336/vsc33625/anneke/EM_436_S4_BPA_Run020226 --outdir /scratch/leuven/336/vsc33625/anneke/output
+# on Tier1
+nextflow run amst2_nextflow -c $VSC_DATA/vsc_gent.config -profile vsc_gent,singularity_tier1 --input $VSC_SCRATCH_PROJECTS_BASE/2024_300/bpavie/anneke/EM_436_S4_BPA_Run020226 --outdir $VSC_SCRATCH_PROJECTS_BASE/2024_300/bpavie/anneke/output
 # how to restart
 nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uhasselt,genius,singularity_tier2 --input /scratch/leuven/336/vsc33625/anneke/EM_436_S4_BPA_Run020226 --outdir /scratch/leuven/336/vsc33625/anneke/output -resume
 ```
