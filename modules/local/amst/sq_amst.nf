@@ -3,7 +3,7 @@ process SQ_AMST {
     input:
     path(input_folder)
     val(json_name)
-    val(elastix_default_params)
+    path(elastix_default_params)
 
  
 
