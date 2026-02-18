@@ -2,7 +2,7 @@ process ELASTIX_APPLY_MULTI_STACK_ALIGNMENT {
     label 'process_cpu_medium'  
     input:
     path(input)
-    val(json_name)
+    path(json_name)
     val(align_folder)
  
 
