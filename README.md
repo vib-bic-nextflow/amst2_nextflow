@@ -33,7 +33,7 @@ file system stg_00128
     Blocks: 24.04G of 2T
     Files: 2292 of 300000
 ```
-- Using sftp, download teh dataset to the scratch
+- Using sftp, download the dataset to the scratch
 ```bash
 cd $VSC_SCRATCH
 mkdir anneke
@@ -182,6 +182,53 @@ JobID           JobName  Partition    Account  AllocCPUS      State ExitCode
 
 ```bash
 cd $VSC_SCRATCH/work/15/96619f751c5a3f7c87cc213d3da6ca/.command.log
+```
+
+#### Results
+```bash
+output/
+├── amst                    
+│   └── transforms.json
+│   └── elastix-params-amst-gs256.txt
+└── prealign
+    ├── amst                # Store the final result (Alignments + AMST)
+    ├── nsbs_align          # Store the 2nd alignment result
+    ├── nsbs.json
+    ├── prealigned.json
+    ├── sbs.json
+    └── sbs_align           # Store the 1st alignment result
+```
+Final tiff aligned images are located in `output/prealign/amst/`
+
+
+#### Copy back the result
+
+##### using Winscp:
+
+- Connect : vscxxxx@login.hpc.kuleuven.be
+- Port : 22
+
+<img width="624" height="418" alt="image" src="https://github.com/user-attachments/assets/2e2ef93b-73d3-4a24-9a29-69a62815eae8" />
+
+Tier2 require a firewall connection, just enter your credential:
+
+<img width="373" height="292" alt="image" src="https://github.com/user-attachments/assets/3b3ddaac-0cac-4002-9b1a-6e83c8cc9191" />
+
+Then go to scratch : 
+
+<img width="475" height="85" alt="image" src="https://github.com/user-attachments/assets/ac278669-a9b0-4a59-8847-880c47c429f7" />
+
+
+###### To the O drive:
+- Using sftp, download the dataset to the scratch
+```bash
+cd $VSC_SCRATCH
+mkdir anneke
+cd anneke
+sftp -P 22345 username@fs0.irc.ugent.be
+cd /microscopy/service/user_micro/2026/Anneke_BIC/Datasets\ for\ Registration
+get -r EM_436_S4_BPA_Run020226
+exit
 ```
 
 > [!TIP]
