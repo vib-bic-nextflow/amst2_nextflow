@@ -10,7 +10,7 @@ on the server, it means : `/microscopy/service/user_micro/2026/Anneke_BIC/Datase
 
 #### Connect using putty to the server
 ##### Tier 2 KU Leuven:
-- Connect : vsc33625@login.hpc.kuleuven.be
+- Connect : vscxxxxx@login.hpc.kuleuven.be
 - Port : 22
 Tier2 require a firewall connection, just enter your credential
 
