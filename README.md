@@ -158,6 +158,31 @@ nextflow run amst2_nextflow -c $VSC_DATA/vsc_gent.config -profile vsc_gent,singu
 # how to restart
 nextflow run amst2_nextflow -c $VSC_DATA/vsc_kuleuven.config -profile vsc_kul_uhasselt,genius,singularity_tier2 --input /scratch/leuven/336/vsc33625/anneke/EM_436_S4_BPA_Run020226 --outdir /scratch/leuven/336/vsc33625/anneke/output -resume
 ```
+#### Check the status after running
+
+Go to https://ondemand.hpc.kuleuven.be and go to `Cluster > _Login Server Sheell Access`
+
+<img width="240" height="87" alt="image" src="https://github.com/user-attachments/assets/e30345ae-3a1a-42c1-a608-50f110572f04" />
+
+```bash
+squeue
+JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+58964780     batch nf-AMST2 vsc33625  R       9:13      1 r25i13n17
+
+sacct
+JobID           JobName  Partition    Account  AllocCPUS      State ExitCode 
+------------ ---------- ---------- ---------- ---------- ---------- -------- 
+58964779     nf-AMST2_+      batch lp_hack_b+          2  COMPLETED      0:0 
+58964779.ba+      batch            lp_hack_b+          2  COMPLETED      0:0 
+58964779.ex+     extern            lp_hack_b+          2  COMPLETED      0:0 
+58964780     nf-AMST2_+      batch lp_hack_b+          8    RUNNING      0:0 
+58964780.ba+      batch            lp_hack_b+          8    RUNNING      0:0 
+58964780.ex+     extern            lp_hack_b+          8    RUNNING      0:0
+```
+
+```bash
+cd $VSC_SCRATCH/work/15/96619f751c5a3f7c87cc213d3da6ca/.command.log
+```
 
 > [!TIP]
 > Sometimes it's failing
