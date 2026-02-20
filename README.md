@@ -1,6 +1,6 @@
 # AMST2 Nextflow
 
-## Tranfer the data
+## Transfer the data
 
 "I have a new dataset, located in `O:\microscopy\service\user_micro\2026\Anneke_BIC\Datasets for Registration\EM_436_S4_BPA_Run020226`"
 
